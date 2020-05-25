@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <link rel="stylesheet" href="fara_ws/r/1381/files/static/v17/theme_table.css" type="text/css" />
+  <meta charset="utf-8">
+  <title>Browse Filings</title>
+  <link rel="stylesheet" href="/i/app_ui/css/Core.min.css?v=5.1.2.00.09" type="text/css" />
+<link rel="stylesheet" href="/i/app_ui/css/Theme-Standard.min.css?v=5.1.2.00.09" type="text/css" />
+<link rel="stylesheet" href="/i/libraries/jquery-ui/1.10.4/themes/base/jquery-ui.min.css?v=5.1.2.00.09" type="text/css" />
+
+  <link rel="stylesheet" href="/i/libraries/font-apex/1.0/css/font-apex.min.css?v=5.1.2.00.09" type="text/css" />
+<link rel="stylesheet" href="/i/themes/theme_42/1.1/css/Core.min.css?v=5.1.2.00.09" type="text/css" />
+
+
+  <link rel="stylesheet" href="/i/themes/theme_42/1.1/css/Vita.min.css?v=5.1.2.00.09" type="text/css" />
+
+
+  <style type="text/css">
+.t-LinksList-label {
+  line-height:20px !important
+  }
+</style>
+
+  <link rel="shortcut icon" href="/i/favicon.ico">
+<link rel="icon" sizes="16x16" href="/i/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/i/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/i/favicon-180x180.png">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><meta http-equiv="Cache-Control" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>FARA EFile</title>
+<meta name="dc.title" content="" />
+<meta name="dc.description" scheme="ISO639" content="" />
+<meta name="dc.creator" scheme="ISO639" content="National Security Division, U.S. Department of Justice" />
+<meta name="dc.language" scheme="ISO639" content="en-us"/>
+<meta name="dc.date.created" content="2011-03-18"/>
+
+<link rel="stylesheet" href="fara_ws/r/1381/files/static/v17/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="fara_ws/r/1381/files/static/v17/nsd-style.css" type="text/css" />
+<link rel="stylesheet" href="fara_ws/r/1381/files/static/v17/tiles-menu.css" type="text/css">
+<script type="text/javascript" src="fara_ws/r/1381/files/static/v17/jquery.min.js"></script>
+<script type="text/javascript" language="Javascript"  src="fara_ws/r/1381/files/static/v17/justiceiso.js"> </script>
+
+<link rel="stylesheet" href="fara_ws/r/1381/files/static/v17/search-template.css" type="text/css">
+
+ <link type="text/css" rel="stylesheet" href="fara_ws/r/1381/files/static/v17/DOJv2.css" media="all" />
+
+
+ <script>function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+$(document).ready(function(){
+	//Caption Sliding (Partially Hidden to Visible)
+	$('.boxgrid.caption').hover(function(){
+		$(".cover", this).stop().animate({top:'0px'},{queue:false,duration:160});
+	}, function() {
+		$(".cover", this).stop().animate({top:'100px'},{queue:false,duration:160});
+	});
+
+$('nav').css({"background-color":"white"});
+
+});
+    </script>
+
+</head>
+
+
+
+  <!--[if IEMobile 7]><html class="no-js ie iem7 not-responsive" lang="en" dir="ltr"><![endif]-->
+  <!--[if lte IE 6]><html class="no-js ie lt-ie9 lt-ie8 lt-ie7 not-responsive" lang="en" dir="ltr"><![endif]-->
+  <!--[if (IE 7)&(!IEMobile)]><html class="no-js ie lt-ie9 lt-ie8 not-responsive" lang="en" dir="ltr"><![endif]-->
+  <!--[if IE 8]><html class="no-js ie lt-ie9 not-responsive" lang="en" dir="ltr"><![endif]-->
+  <!--[if (gte IE 9)|(gt IEMobile 7)]><html class="no-js ie responsive" lang="en" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"><![endif]-->
+  <!--[if !IE]><!--><html class="no-js responsive" lang="en" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+<head>
+  <title>Foreign Agents Registration Act | Department of Justice</title>
+  <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<link rel="apple-touch-icon-precomposed" href="https://www.justice.gov/sites/all/themes/justice/apple-touch-icon-precomposed-144x144.png" sizes="144x144" />
+<link rel="apple-touch-icon-precomposed" href="https://www.justice.gov/sites/all/themes/justice/apple-touch-icon-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" href="https://www.justice.gov/sites/all/themes/justice/apple-touch-icon-precomposed-72x72.png" sizes="72x72" />
+<meta http-equiv="cleartype" content="on" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />
+<link rel="shortcut icon" href="https://www.justice.gov/sites/default/files/favicon.png" type="image/png" />
+<script async="async" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOJ&amp;sp=find&amp;yt=true&amp;subagency=nsd-fara"></script>
+<link rel="apple-touch-icon-precomposed" href="https://www.justice.gov/sites/all/themes/justice/apple-touch-icon-precomposed-114x114.png" sizes="114x114" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<meta name="viewport" content="width=device-width" />
+<link rel="canonical" href="https://www.justice.gov/nsd-fara" />
+
+
+
+<![endif]-->
+</head>
+<body x-ms-format-detection="none" class="html not-front not-logged-in page-node page-node- page-node-948656 node-type-organization og-context og-context-node og-context-node-948656 i18n-en section-nsd-fara one-sidebar sidebar-first og-context-foreign-agents-registration-act">
+  <a id="skip-link" href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+    <div class="l-page panelized">
+  <a name="page-top"></a>
+  <div class="l-header-wrapper">
+    <header class="l-header" role="banner">
+      <div class="l-branding site-branding">
+                  <a href="https://www.justice.gov/" title="The United States Department of Justice" rel="home" class="site-branding__logo desktop"><img src="https://www.justice.gov/sites/default/files/header-logo_bronze-resized-5-2.png" alt="The United States Department of Justice" /></a>
+          <a href="/" title="The United States Department of Justice" rel="home" class="site-branding__logo mobile"><img src="https://www.justice.gov/sites/default/files/header-logo-mobile_bronze5.png" alt="The United States Department of Justice" /></a>
+
+              </div>
+        <div class="l-region l-region--header">
+    <div id="block-usasearch-hosted-form" class="block block--usasearch-hosted block--usasearch-hosted-form">
+        <div class="block__content">
+    <form class="usasearch-hosted-box" action="https://search.justice.gov/search" method="get" id="usasearch-hosted-box" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-usasearch-hosted-box">
+  <label class="element-invisible" for="edit-usasearch-hosted-box--2">Search </label>
+ <input class="usagov-search-autocomplete ui-autocomplete-input ui-corner-all form-text" autocomplete="off" type="text" name="query" placeholder="Search this site" id="edit-usasearch-hosted-box--2" value="" size="15" maxlength="128" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="affiliate" value="justice" />
+</div>
+</div></form>  </div>
+</div>
+  </div>
+
+    </header>
+      <div class="l-region l-region--navigation">
+    <div id="block-nice-menus-1" class="block block--nice-menus block--nice-menus-1">
+        <h2 class="block__title"><span class="nice-menu-hide-title">Main menu</span></h2>
+      <div class="block__content">
+    <ul class="nice-menu nice-menu-down nice-menu-main-menu" id="nice-menu-1"><li class="menu-1258 menu-path-front first odd "><a href="https://www.justice.gov/" title="">Home</a></li>
+<li class="menu-1259 menuparent  menu-path-node-82626  even "><a href="/about" title="">About</a><ul><li class="menu-9686 menu-path-node-1652 first odd "><a href="https://www.justice.gov/ag" title="">The Attorney General</a></li>
+<li class="menu-1267 menu-path-node-82606  even "><a href="https://www.justice.gov/doj/budget-and-performance" title="">Budget &amp; Performance</a></li>
+<li class="menu-51706 menu-path-node-632231  odd "><a href="https://www.justice.gov/about/history" title="">History</a></li>
+<li class="menu-89781 menu-path-node-1666  even last"><a href="https://www.justice.gov/opcl" title="">Privacy Program</a></li>
+</ul></li>
+<li class="menu-1260 menuparent  menu-path-node-33666-chart  odd "><a href="https://www.justice.gov/agencies/chart" title="">Agencies</a><ul><li class="menu-90596 menu-path-node-33666-chart first odd "><a href="https://www.justice.gov/agencies/chart" title="">Organizational Chart</a></li>
+<li class="menu-90591 menu-path-node-924706  even last"><a href="https://www.justice.gov/agencies/alphabetical-listing-components-programs-initiatives" title="">Alphabetical Listing</a></li>
+</ul></li>
+<li class="menu-1262 menuparent  menu-path-node-82271  even "><a href="https://www.justice.gov/resources" title="">Resources</a><ul><li class="menu-92026 menu-path-node-82476 first odd "><a href="https://www.justice.gov/grants" title="">Grants</a></li>
+<li class="menu-1261 menu-path-node-82486  even "><a href="https://www.justice.gov/business" title="">Business</a></li>
+<li class="menu-1272 menu-path-justicegov-forms  odd "><a href="http://www.justice.gov/forms" title="">Forms</a></li>
+<li class="menu-1273 menu-path-node-643761  even "><a href="https://www.justice.gov/publications" title="">Publications</a></li>
+<li class="menu-5306 menu-path-largecases  odd last"><a href="https://www.justice.gov/largecases" title="">Information for Victims in Large Cases</a></li>
+</ul></li>
+<li class="menu-1263 menuparent  menu-path-node-24871  odd "><a href="https://www.justice.gov/briefing-room" title="">News</a><ul><li class="menu-1276 menu-path-node-780336 first odd "><a href="https://www.justice.gov/news" title="">Press Releases</a></li>
+<li class="menu-1278 menu-path-node-890381  even "><a href="https://www.justice.gov/public-schedule" title="">Public Schedule</a></li>
+<li class="menu-1279 menu-path-node-665661  odd "><a href="https://www.justice.gov/videos" title="">Videos</a></li>
+<li class="menu-1280 menu-path-opa-galleries  even last"><a href="https://www.justice.gov/opa/galleries" title="">Photos</a></li>
+</ul></li>
+<li class="menu-92596 menuparent  menu-path-node-865991 active-trail  even "><a href="https://www.justice.gov/careers" title="">Careers</a><ul><li class="menu-2925 menu-path-node-3643 first odd "><a href="https://www.justice.gov/legal-careers">Legal Careers</a></li>
+<li class="menu-3650 menu-path-node-796646  even "><a href="https://www.justice.gov/careers/veteran-recruitment" title="">Veteran Recruitment</a></li>
+<li class="menu-92601 menu-path-node-6001  odd last"><a href="https://www.justice.gov/careers/disability-hiring" title="">Disability Hiring</a></li>
+</ul></li>
+<li class="menu-1265 menu-path-node-82636  odd last"><a href="https://www.justice.gov/contact-us" title="">Contact</a></li>
+</ul>
+  </div>
+</div>
+  </div>
+  </div>
+
+  <div class="l-lower">
+
+    <div class="l-main-wrapper">
+      <div class="l-main">
+        <div class="site-info">
+          <h2 class="element-invisible">You are here</h2><div class="breadcrumb">
+
+		  <span class="bread">
+		  <a href="https://www.justice.gov/">Home</a>
+» <a href="https://www.justice.gov/nsd-fara">Foreign Agents
+Registration Act</a>
+</span>
+</div>        </div>
+
+                  <div class="pre-content clearfix">
+              <div class="l-region l-region--pre-content">
+    <div id="block-doj-sharing-doj-sharing" class="block block--doj-sharing block--doj-sharing-doj-sharing">
+        <div class="block__content">
+    <div class="doj-sharing" style="display:none;">
+  <a id="doj-sharing-toggle" tabindex="0" title="Choose a social sharing platform">
+    Share  </a>
+  <ul>
+    <li>
+      <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.justice.gov/nsd-fara" target="_blank" title="Share on Facebook" data-event-label="Share on Facebook">Facebook</a>
+    </li>
+    <li>
+      <a href="http://twitter.com/intent/tweet?url=https://www.justice.gov/nsd-fara&amp;text=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on Twitter" data-event-label="Share on Twitter">Twitter</a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=https://www.justice.gov/nsd-fara" target="_blank" title="Share on Google+" data-event-label="Share on Google+">Google+</a>
+    </li>
+    <li>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.justice.gov/nsd-fara&amp;title=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on LinkedIn" data-event-label="Share on LinkedIn">LinkedIn</a>
+    </li>
+    <li>
+      <a href="http://digg.com/submit?url=https://www.justice.gov/nsd-fara&amp;title=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on Digg" data-event-label="Share on Digg">Digg</a>
+    </li>
+    <li>
+      <a href="http://reddit.com/submit?url=https://www.justice.gov/nsd-fara&amp;title=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on Reddit" data-event-label="Share on Reddit">Reddit</a>
+    </li>
+    <li>
+      <a href="http://www.stumbleupon.com/submit?url=https://www.justice.gov/nsd-fara&amp;title=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on StumbleUpon" data-event-label="Share on StumbleUpon">StumbleUpon</a>
+    </li>
+    <li>
+      <a href="http://pinterest.com/pin/create/button/?url=https://www.justice.gov/nsd-fara&amp;media=https%3A//www.justice.gov/sites/all/modules/features/doj_sharing/images/doj-seal-pin.png&amp;title=Foreign%20Agents%20Registration%20Act" target="_blank" title="Share on Pinterest" data-event-label="Share on Pinterest">Pinterest</a>
+    </li>
+    <li>
+      <a href="mailto:?to=&body=https://www.justice.gov/nsd-fara&subject=Foreign%20Agents%20Registration%20Act" title="Email" data-event-label="Email">Email</a>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+  </div>
+          </div>
+
+          <aside class="l-region l-region--sidebar-first">
+    <div id="block-og-menu-og-single-menu-block" class="block block--og-menu block--og-menu-og-single-menu-block">
+        <h2 class="block__title">Foreign Agents Registration Act</h2>
+      <div class="block__content">
+<UL class="menu">
+  <LI class="first leaf"><A title="" href="https://www.justice.gov/nsd-fara">FARA
+  Home</A></LI>
+  <LI class="collapsed"><A title="" href="https://www.justice.gov/nsd-fara/legal-authority">Legal
+  Authority</A></LI>
+          <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/fara-enforcement">Enforcement</A></LI>
+    <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/recent-cases">Recent Cases</A></LI>
+  <LI class="leaf"><A title=""  href="https://www.justice.gov/nsd-fara/fara-efile">FARA
+  eFile</A></LI>
+  <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/advisory-opinions">Advisory
+  Opinions</A></LI>
+  <LI class="collapsed"><A title="" href="https://www.justice.gov/nsd-fara/fara-frequently-asked-questions">Frequently
+  Asked Questions</A></LI>
+  <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/fara-forms">Registration
+  Forms</A></LI>
+  <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/fara-fee-schedule">Fee
+  Schedule</A></LI>
+
+
+<li class="expanded active-trail"><a title="" class="active-trail active" href="f?p=1381:1">Browse Filings</a>
+      <ul class="menu">
+          <li class="first leaf"><a title="" href="f?p=1381:4">By Primary Registrant</a></li>
+          <li class="leaf"><a title="" href="f?p=1381:5">By Short Form Registrant</a></li>
+          <li class="last leaf"><a title="" href="f?p=1381:8">By Foreign Principal</a></li>
+      </ul>
+    </li>
+
+  <LI class="leaf active-trail"><a title=""  href="f?p=1235:10">Search Filings</a></li>
+  <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/fara-reports-congress">Reports
+  to Congress</A></LI>
+  <LI class="leaf"><A title="" href="https://www.justice.gov/nsd-fara/fara-contact-information">Contact
+  FARA</A></LI>
+  <LI class="last leaf"><A title="" href="https://www.justice.gov/nsd/nsd-freedom-information-act">NSD
+  FOIA</A></LI></UL></DIV></DIV></ASIDE>
+<DIV class="l-content" role="main"><A tabindex="-1" id="main-content"></A>
+
+
+
+
+  <title>Browse Filings</title>
+  <link rel="stylesheet" href="/i/app_ui/css/Core.min.css?v=5.1.2.00.09" type="text/css" />
+<link rel="stylesheet" href="/i/app_ui/css/Theme-Standard.min.css?v=5.1.2.00.09" type="text/css" />
+<link rel="stylesheet" href="/i/libraries/jquery-ui/1.10.4/themes/base/jquery-ui.min.css?v=5.1.2.00.09" type="text/css" />
+
+
+
+
+
+  <style type="text/css">
+.t-LinksList-label {
+  line-height:20px !important
+  }
+</style>
+
+  <link rel="shortcut icon" href="/i/favicon.ico">
+<link rel="icon" sizes="16x16" href="/i/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/i/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/i/favicon-180x180.png">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><meta http-equiv="Cache-Control" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+
+<body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim   apex-side-nav apex-icons-fontapex"  id="t_PageBody">
+
+
+    <H1>Browse Filings</H1>
+
+
+
+<form action="wwv_flow.accept" method="post" name="wwv_flow" id="wwvFlowForm" novalidate >
+<input type="hidden" name="p_flow_id" value="1381" id="pFlowId" /><input type="hidden" name="p_flow_step_id" value="1" id="pFlowStepId" /><input type="hidden" name="p_instance" value="9305730020345" id="pInstance" /><input type="hidden" name="p_page_submission_id" value="292754800762060653000492011517402247024" id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden" name="p_reload_on_submit" value="A" id="pReloadOnSubmit" /><input type="hidden" value="292754800762060653000492011517402247024" id="pSalt" />     <ARTICLE class="node node--page node--full node--page--full"
+role="article" typeof="foaf:Document"
+about="/nsd-fara/fara-contact-information"><HEADER><SPAN class="rdf-meta element-hidden"
+content="FARA Contact Information" property="dc:title"></SPAN>    </HEADER>
+<DIV class="node__content">
+<DIV class="field field--name-field-page-body field--type-text-long field--label-hidden">
+<DIV class="field__items">
+<DIV class="field__item even" style="min-width: 796px; background-color:#F8F9F4">
+
+<center>
+<table width="95%" cellpadding="0" cellspacing="0" border="0" summary="">
+  <tr>
+    <TD width="65%">
+        <center>
+
+        <span id="APEX_SUCCESS_MESSAGE" data-template-id="38937190782030601_S" class="apex-page-success u-hidden"></span> <span id="APEX_ERROR_MESSAGE" data-template-id="38937190782030601_E" class="apex-page-error u-hidden"></span> <TABLE cellSpacing=0 border=0>
+            <TR>
+            <TD width="100%"><center><div class="t-Region t-Region--removeHeader t-Region--scrollBody" id="R36961222517954405" >
+ <div class="t-Region-header">
+  <div class="t-Region-headerItems t-Region-headerItems--title">
+    <h2 class="t-Region-title" id="R36961222517954405_heading">New</h2>
+  </div>
+  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span class="js-maximizeButtonContainer"></span></div>
+ </div>
+ <div class="t-Region-bodyWrap">
+   <div class="t-Region-buttons t-Region-buttons--top">
+    <div class="t-Region-buttons-left"></div>
+    <div class="t-Region-buttons-right"></div>
+   </div>
+   <div class="t-Region-body">
+     <input type="hidden" id="P1_FR" name="P1_FR" value="891"><input type="hidden" data-for="P1_FR" value="p26lTPkwirzJAa1jco58MTyIYYxdfERMdFCOXsfhWb7iljJFtOwAPkyW4G3INqI_y9Rkuakq3ZJ7XAQ8n-jCyg"><input type="hidden" id="P1_RR" name="P1_RR" value="6339"><input type="hidden" data-for="P1_RR" value="meb7x6Wa0aDOWmpz8CO5x4xtxwVD2Penkq6HFC2otWqyRWbNab_wmdDAv6aTwlkAM411mdr-BRYXKJffqT5r0w"><input type="hidden" id="P1_SRR" name="P1_SRR" value="2731"><input type="hidden" data-for="P1_SRR" value="5WeT8dP_uUOpJBR4T4sR56YBK6AgEticC21dnPmvHb3c0_6U_nJl7cSllnDWHXLiXGocPGZuOSs-dRYDmOZYOA"><input type="hidden" id="P1_AFPP" name="P1_AFPP" value="16143"><input type="hidden" data-for="P1_AFPP" value="VcsTyNSLsr4dhRzp_XAq8KtdYaCElLh00jdi9nU6oTnYh5bOmPvC55AWzKOtmvgwS40Rz9lLhgw8hpayMapDBw"><input type="hidden" id="P1_ACTREG" name="P1_ACTREG" value="489"><input type="hidden" data-for="P1_ACTREG" value="TSqKpZkVWdnAs0SEhfWnVjroq-3TT1AZdb8Tx3nJ2l7CPWOJSL1lGAWIfhmktPQSUoMeG_8ZrX7wGgOXDUNpeg"><input type="hidden" id="P1_DISPLAY" name="P1_DISPLAY" value="A"><input type="hidden" data-for="P1_DISPLAY" value="mGt_IgeTvbbhO3_f8V4vNA41ovsMsPq_sdiZc2zfTEenuqs-5HlJ8ckGr1oA2xpag6OQBYNssS930lrhbxvZfQ"><style>
+/* Drupal */
+.t-Region-body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+    line-height: .7em;
+    padding-top: 0px !important;
+}
+.t-Region-body th {
+    line-height: 1.2em;
+}
+
+table tr:nth-child(2n), table tr.even, table tr:nth-child(2n+1), table tr.odd {
+    background-color: transparent !important;
+}
+fieldset {
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.htmlTree, #apexir_columnsearch, #apexir_WORKSHEET {
+    line-height: 1.1em;
+}
+.htmlTree li {
+    line-height: 1.1em !important;
+}
+
+
+
+    .datepicker {
+        padding: 0 !important;
+    }
+
+
+
+/* 2/5/2018 - override for FARA apex - KD */
+*{font-size: 13px;}
+
+.nsd-top {
+	width:735px;
+}
+
+.leftnav li a {
+    font-family: Georgia;
+    font-size: 14px;
+}
+#i3a, #i3b, #i3c {
+	font-family:Georgia !important;
+	font-size:12px !important;
+}
+.t7GCCReportsStyle2 {
+    background-color: white;
+}
+.apexir_SEARCH input {
+    font-family: Arial, Helvetica, Geneva, sans-serif;
+    color: #000;
+}
+.formlayout input, .formlayout select, .formlayout textarea {
+    font-family: Arial, Helvetica, Geneva, sans-serif;
+    color: #000;
+}
+#block-og-menu-og-single-menu-block .menu a {
+    font-size: 14px;
+    font-family: Georgia, serif, sans-serif;
+}
+.responsive-menus-mean-menu-processed a, #block-nice-menus-1 a {
+    font-family: Helvetica,Arial,Sans-Serif !important;
+}
+#edit-usasearch-hosted-box--2, .follow-link-wrapper a {
+    font-family: Georgia, serif, sans-serif;
+    color: #464648;
+}
+
+.l-footer .block__content p, .l-footer .block__content strong {
+    font-family: Georgia,serif !important;
+}
+
+/* White Theme */
+.address br {
+    clear: none !important;
+}
+
+.title a {
+	font-size: 15px !important;
+}
+
+body {
+	background-color: #F8F9F4 !important;
+}
+.breadcrumb a, .bread {
+    font-family: Georgia !important;
+    font-size: 13px !important;
+}
+.menuparent>ul>li a, .menu-path-front>ul>li a, .last>ul>li a {
+	font-size:.9em !important;
+}
+</style>
+
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" summary=""><tbody><tr><td width="65%"><center><table border="0" cellspacing="0"><tbody><tr><td width="100%"><center><table class="t7GCCReportsStyle2" id="R468978957338917406" border="0" cellspacing="0" cellpadding="0" summary="">
+  <tbody><tr>
+    <td align="right"><img alt="" src="/i5/themes/theme_7/form_region_top_left.png" border="0"></td>
+    <td align="left" class="formRegionTop" nowrap="nowrap"><font color="black" face="Arial" size="2">Foreign Agents Registration Act -- Browse Filings</font>&nbsp;</td>
+    <td align="right" class="formRegionTop">&nbsp;&nbsp;&nbsp;</td>
+    <td align="left"><img alt="" src="/i5/themes/theme_7/form_region_top_right.png" border="0"></td>
+  </tr>
+  <tr>
+    <td align="right" class="formRegionLeft">&nbsp;</td>
+    <td colspan="2"><table summary=""><tbody><tr>
+    <td align="left" valign="middle"></td>
+    <td align="left" valign="middle">
+    <ul class="htmlTree">
+
+<li><a href="f?p=1381:1"><font color="black" face="arial" size="4"><b>
+PRIMARY REGISTRANTS</b> </font> </a>
+
+<ul id="L292353144270800006" htmldb:listlevel="2">
+<li><a href="f?p=1381:17:9305730020345"><font color="#0000cc" face="arial" size="2">Active Registrants&nbsp;</font></a></li>
+<li><a href="f?p=1381:140:9305730020345::NO:RP:P140_FROMDATE,P140_TODATE:05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Active Registrants in a Date Range</font></a></li>
+<li><a href="f?p=1381:11:9305730020345::NO:RP,11:P11_DATERANGE,P11_FROMDATE,P11_TODATE:N,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Active Registrants by Country or Location Represented</font></a></li>
+<li><a href="f?p=1381:11:9305730020345::NO:RP,11:P11_DATERANGE,P11_FROMDATE,P11_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Active Registrants by Country or Location in a Date Range</font></a></li>
+<li><a href="f?p=1381:25:9305730020345::NO:RP,25:P25_DATERANGE,P25_FROMDATE,P25_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Registrant Supplemental Statements by Country or Location in a Date Range</font></a></li>
+<li><a href="f?p=1381:6:9305730020345::NO:6:P6_FROMDATE,P6_TODATE:05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">New Registrants in a Date Range</font></a></li>
+<li><a href="f?p=1381:7:9305730020345::NO:7:P7_FROMDATE,P7_TODATE:05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Terminated Registrants in a Date Range</font></a></li>
+<li><a href="f?p=1381:110:9305730020345::NO:RP,110:P110_USECNTRY:N"><font color="#0000cc" face="arial" size="2">Historical List of All Registrants (Active and Terminated)</font></a></li>
+<li><a href="f?p=1381:110:9305730020345::NO:RP,110:P110_USECNTRY,P110_CNTRY:Y,ALL"><font color="#0000cc" face="arial" size="2">Historical List of All Registrants by Country or Location Represented (Active and Terminated)<br><br></font></a></li>
+</ul>
+
+<li><font color="black" face="arial" size="2"><b>SHORT FORM REGISTRANTS</b> </font>
+
+<ul id="L301608147769599023" htmldb:listlevel="2">
+<li><a href="f?p=1381:122:9305730020345::NO::P122_DATERANGE:N"><font color="#0000cc" face="arial" size="2">
+Active Short Form Registrants </font> </a></li>
+<li><a href="f?p=1381:142:9305730020345::NO:RP,142:P142_DATERANGE,P142_FROMDATE,P142_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Active Short Form Registrants in a Date Range </font></a></li>
+<li><a href="f?p=1381:124:9305730020345::NO:RP,124:P124_DATERANGE,P124_FROMDATE,P124_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">New Short Form Registrants in a Date Range </font></a></li>
+<li><a href="f?p=1381:126:9305730020345::NO:RP:P126_DATERANGE:N"> <font color="#0000cc" face="arial" size="2">Terminated Short Form Registrants </font></a></li>
+<li><a href="f?p=1381:126:9305730020345::NO:RP:P126_DATERANGE,P126_FROMDATE,P126_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"> <font color="#0000cc" face="arial" size="2">Terminated Short Form Registrants in a Date Range </font></a></li>
+<li><a href="f?p=1381:120:9305730020345::NO::P120_DATERANGE:N"><font color="#0000cc" face="arial" size="2">
+Historical List of All Short Form Registrants (Active and Terminated)<br><br> </font> </a></li>
+</ul>
+
+<li><font color="black" face="arial" size="2"><b>FOREIGN PRINCIPALS</b> </font>
+
+<ul id="L305833146647729924" htmldb:listlevel="2">
+<li><a href="f?p=1381:130:9305730020345::NO:RP,130:P130_DATERANGE:N"><font color="#0000cc" face="arial" size="2">Active Foreign Principals</font></a></li>
+<li><a href="f?p=1381:130:9305730020345::NO:RP,130:P130_DATERANGE,P130_FROMDATE,P130_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">Active Foreign Principals in a Date Range</font></a></li>
+<li><a href="f?p=1381:132:9305730020345::NO:RP,132:P132_DATERANGE,P132_FROMDATE,P132_TODATE:Y,05%2F24%2F2020,05%2F24%2F2020"><font color="#0000cc" face="arial" size="2">New Foreign Principals in a Date Range</font></a></li>
+<li><a href="f?p=1381:138:9305730020345::NO:RP,138:P138_DATERANGE,P138_CNTRY:N,ALL"><font color="#0000cc" face="arial" size="2">Terminated Foreign Principals</font></a></li>
+<li><a href="f?p=1381:138:9305730020345::NO:RP,138:P138_DATERANGE,P138_FROMDATE,P138_TODATE,P138_CNTRY:Y,05%2F24%2F2020,05%2F24%2F2020,ALL"><font color="#0000cc" face="arial" size="2">Terminated Foreign Principals in a Date Range</font></a></li>
+<li><a href="f?p=1381:136:9305730020345::NO:136:P136_DATERANGE:N"><font color="#0000cc" face="arial" size="2">Historical List of All Foreign Principals (Active and Terminated)</font></a></li>
+
+</ul>
+</li>
+</ul>
+</td>
+    </tr></tbody></table></td>
+    <td align="left" class="formRegionRight">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right"><img alt="" src="/i5/themes/theme_7/form_region_bot_left.png" border="0"></td>
+    <td class="formRegionBot">&nbsp;</td>
+    <td class="formRegionBot">&nbsp;</td>
+    <td align="left"><img alt="" src="/i5/themes/theme_7/form_region_bot_right.png" border="0"></td>
+  </tr>
+</tbody></table></center></td></tr></tbody></table></center></td></tr></tbody></table>
+
+   </div>
+   <div class="t-Region-buttons t-Region-buttons--bottom">
+    <div class="t-Region-buttons-left"></div>
+    <div class="t-Region-buttons-right"></div>
+   </div>
+ </div>
+</div>
+</center><table border="0"><tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td></td></tr></table></TD>
+          </TR>
+        </TABLE>
+
+            </center>
+            </TD>
+
+</TR>
+<TR><TD></TD></TR>
+</TABLE>
+</center>
+
+</DIV></DIV></DIV></DIV>
+</ARTICLE>
+<input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected" value="GV5EREFE05YVpTED_WyRfbKieTdQ5uTtFhBnPnqedF2SwScmbxhy6kqQeFXp565KDAyuXRGqzMjRZy1VZ3103w" /></form>
+
+
+<script type="text/javascript">
+var apex_img_dir = "/i/", htmldb_Img_Dir = apex_img_dir;
+</script>
+<!--[if lt IE 9]><script type="text/javascript" src="/i/libraries/jquery/1.12.3/jquery-1.12.3.min.js?v=5.1.2.00.09"></script><![endif]-->
+<!--[if gte IE 9]><!--><script type="text/javascript" src="/i/libraries/jquery/2.2.3/jquery-2.2.3.min.js?v=5.1.2.00.09"></script><!--<![endif]-->
+<script type="text/javascript" src="/i/libraries/apex/minified/desktop.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="wwv_flow.js_messages?p_app_id=1381&p_lang=en&p_version=5.1.2.00.09-3146034050"></script>
+
+
+<script type="text/javascript" src="/i/libraries/hammer/2.0.4/hammer-2.0.4.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="/i/libraries/apex/minified/widget.apexTabs.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="/i/libraries/apex/minified/widget.stickyWidget.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="/i/libraries/apex/minified/widget.stickyTableHeader.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="/i/themes/theme_42/1.1/js/modernizr-custom.min.js?v=5.1.2.00.09"></script>
+<script type="text/javascript" src="/i/themes/theme_42/1.1/js/theme42.min.js?v=5.1.2.00.09"></script>
+
+
+
+
+<script type="text/javascript">
+apex.jQuery( document ).ready( function() {
+apex.theme42.initializePage.appLogin();
+
+});</script>
+
+
+
+
+
+                  </div>
+
+
+      </div>
+      <!-- /.l-main -->
+    </div>
+    <!-- /.l-main-wrapper -->
+  </div>
+  <!-- /.l-lower -->
+
+  <div class="l-footer-wrapper">
+    <footer class="l-footer" role="contentinfo">
+        <div class="l-region l-region--footer">
+    <nav id="block-menu-menu-footer-secondary-menu" role="navigation" class="block block--menu block--menu-menu-footer-secondary-menu">
+        <h2 class="block__title">JUSTICE.GOV</h2>
+
+  <ul class="menu"><li class="first expanded"><span title="" class="nolink">Third Column</span><ul class="menu"><li class="first leaf"><a href="https://www.justice.gov/grants" title="">Grants</a></li>
+<li class="leaf"><a href="https://www.justice.gov/business" title="">Business</a></li>
+<li class="leaf"><a href="http://www.justice.gov/forms" title="">Forms</a></li>
+<li class="leaf"><a href="https://www.justice.gov/publications" title="">Publications</a></li>
+<li class="last leaf"><a href="http://www.justice.gov/largecases/" title="Information for Victims in Large Cases">Information for Victims in Large Cases</a></li>
+</ul></li>
+<li class="expanded"><span class="nolink">Left Column</span><ul class="menu"><li class="first leaf"><a href="http://www.justice.gov/archive">Archive</a></li>
+<li class="leaf"><a href="https://www.justice.gov/accessibility/accessibility-information" title="">Accessibility</a></li>
+<li class="leaf"><a href="http://get.adobe.com/reader/otherversions/" title="">Adobe Reader</a></li>
+<li class="leaf"><a href="https://www.justice.gov/oip" title="">FOIA</a></li>
+<li class="leaf"><a href="https://www.justice.gov/jmd/eeo-program-status-report" title="">No FEAR Act</a></li>
+<li class="leaf"><a href="https://www.justice.gov/iqpr/information-quality" title="">Information Quality</a></li>
+<li class="leaf"><a href="https://www.justice.gov/doj/privacy-policy" title="">Privacy Policy</a></li>
+<li class="last leaf"><a href="https://www.justice.gov/legalpolicies" title="">Legal Policies &amp; Disclaimers</a></li>
+</ul></li>
+<li class="last expanded"><span class="nolink">Right Column</span><ul class="menu"><li class="first leaf"><a href="https://www.justice.gov/social" title="">Social Media</a></li>
+<li class="leaf"><a href="https://www.justice.gov/employees" title="">For Employees</a></li>
+<li class="leaf"><a href="http://www.justice.gov/oig">Office of the Inspector General</a></li>
+<li class="leaf"><a href="https://www.justice.gov/open" title="">Open Government</a></li>
+<li class="leaf"><a href="https://www.justice.gov/open/plain-writing-act" title="">Plain Writing</a></li>
+<li class="leaf"><a href="http://usa.gov">USA.gov</a></li>
+<li class="last leaf"><a href="http://business.usa.gov/">BusinessUSA</a></li>
+</ul></li>
+</ul></nav>
+<nav id="block-menu-menu-footer-menu-justice" role="navigation" class="block block--menu block--menu-menu-footer-menu-justice">
+        <h2 class="block__title">Footer Menu Justice</h2>
+
+  <ul class="menu"><li class="first expanded"><span title="" class="nolink">First Column</span><ul class="menu"><li class="first leaf"><a href="https://www.justice.gov/espanol" title="">en Español</a></li>
+<li class="leaf"><a href="https://www.justice.gov/contact-us" title="">Contact DOJ</a></li>
+<li class="last leaf"><a href="https://www.justice.gov/careers" title="">Careers</a></li>
+</ul></li>
+<li class="expanded"><span title="" class="nolink">Second Column</span><ul class="menu"><li class="first leaf"><a href="https://www.justice.gov/archive" title="">Archive</a></li>
+<li class="leaf"><a href="https://www.justice.gov/accessibility/accessibility-information" title="">Accessibility</a></li>
+<li class="leaf"><a href="https://www.justice.gov/iqpr/information-quality" title="">Information Quality</a></li>
+<li class="leaf"><a href="https://www.justice.gov/doj/privacy-policy" title="">Privacy Policy</a></li>
+<li class="leaf"><a href="https://www.justice.gov/legalpolicies" title="">Legal Policies &amp; Disclaimers</a></li>
+<li class="last leaf"><a href="https://www.justice.gov/social" title="">Social Media</a></li>
+</ul></li>
+<li class="last expanded"><span title="" class="nolink">Third Column</span><ul class="menu"><li class="first leaf"><a href="https://www.justice.gov/doj/budget-and-performance" title="">Budget &amp; Performance</a></li>
+<li class="leaf"><a href="https://oig.justice.gov/" title="">Office of the Inspector General</a></li>
+<li class="leaf"><a href="https://www.justice.gov/jmd/eeo-program-status-report" title="">No FEAR Act</a></li>
+<li class="leaf"><a href="https://www.justice.gov/employees" title="">For Employees</a></li>
+<li class="leaf"><a href="https://www.justice.gov/oip" title="">FOIA</a></li>
+<li class="last leaf"><a href="https://usa.gov" title="">USA.gov</a></li>
+</ul></li>
+</ul></nav>
+<div id="block-block-36" class="block block--block block--block-36">
+        <div class="block__content">
+    <div class="address">
+<h2>U.S. Department of Justice</h2>
+950 Pennsylvania Avenue, NW<br />
+Washington, DC 20530-0001</div>
+  </div>
+</div>
+<div id="block-follow-site" class="block block--follow block--follow-site">
+        <h2 class="block__title">Connect With Us</h2>
+      <div class="block__content">
+    <div class='follow-links clearfix site'><span class='follow-link-wrapper follow-link-wrapper-instagram'><a href="https://instagram.com/thejusticedept" class="follow-link follow-link-instagram follow-link-site" title="Follow us on Instagram">Instagram</a>
+</span><span class='follow-link-wrapper follow-link-wrapper-facebook'><a href="http://www.facebook.com/DOJ" class="follow-link follow-link-facebook follow-link-site" title="Follow us on Facebook">Facebook</a>
+</span><span class='follow-link-wrapper follow-link-wrapper-twitter'><a href="http://www.twitter.com/TheJusticeDept" class="follow-link follow-link-twitter follow-link-site" title="Follow us on Twitter">Twitter</a>
+</span><span class='follow-link-wrapper follow-link-wrapper-youtube'><a href="http://www.youtube.com/TheJusticeDepartment" class="follow-link follow-link-youtube follow-link-site" title="Follow us on YouTube">YouTube</a>
+</span></div>  </div>
+</div>
+<div id="block-block-26" class="block block--block block--block-26">
+        <div class="block__content">
+    <div class="update-title">
+<div class="title">
+<h2><a href="https://public.govdelivery.com/accounts/USDOJ/subscriber/new">Email Updates</a></h2>
+</div>
+
+<div class="email-logo"><a href="https://public.govdelivery.com/accounts/USDOJ/subscriber/new"><img alt="Email icon" src="fara_ws/r/1381/files/static/v17/email-icon.png" title="Follow us on Email" /></a></div>
+</div>
+  </div>
+</div>
+  </div>
+    </footer>
+  </div>
+</div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery||document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js'>\x3C/script>");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.justice.gov/sites/default/files/advagg_js/js__q0X56UwREcbJyzNybeawxQuz29PS0RVFWTYH2h61iGo__djjoHl6BGDusxBd2H_7L3zvUFs7u2nVqOwQ_6Uid4Ek__uTIQoWbf9AhTejt6tndAE72-EP5fOKFg8MdKnljcEMQ.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery.ui||document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery-ui.min.js'>\x3C/script>");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.justice.gov/sites/default/files/advagg_js/js__P2rLh1v2LkaimiTzQTjBZc1Vd2S--nSe5qfO4nPm4fI__7WJsicGBq887YQcKYBvGYsHw6HVr__II83PtyHK5WzA__uTIQoWbf9AhTejt6tndAE72-EP5fOKFg8MdKnljcEMQ.js"></script>
+<script type="text/javascript" src="https://www.justice.gov/sites/all/libraries/mediaelement/build/mediaelement-and-player.min.js?v=2.1.6"></script>
+<script type="text/javascript" src="https://www.justice.gov/sites/default/files/advagg_js/js__HeBlbfZg31W5-k3TnSu0psp6NxEebwWqfnnTeMENJc0__0pHO0iklafpAGQz1-symT5ZS590wnV0-uwvdq3VFa80__uTIQoWbf9AhTejt6tndAE72-EP5fOKFg8MdKnljcEMQ.js"></script>
+
+<!--[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="https://www.justice.gov/sites/default/files/advagg_js/js__UBTbecLPXcFRDNR3XjnGaFARkN87O-WXu18yLu6P1NE__YxqvutpREDoNXz22Aw7c17BIVoeHmcVG_xEpS91m3mU__uTIQoWbf9AhTejt6tndAE72-EP5fOKFg8MdKnljcEMQ.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://www.justice.gov/sites/default/files/advagg_js/js__b72Mq5iW2zyiAZHmW89LJXagLNN9aFfjHDJDywFfCEQ__gEXsVZiKPDn1DG_sW4TkOxh6Yb8hvoAY1D-HuEOa_uY__uTIQoWbf9AhTejt6tndAE72-EP5fOKFg8MdKnljcEMQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings,{"basePath":"\/","pathPrefix":"","autocomplete_limit":{"limit":2},"colorbox":{"transition":"none","speed":"350","opacity":"0.85","slideshow":true,"slideshowAuto":true,"slideshowSpeed":"6000","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","overlayClose":true,"returnFocus":true,"maxWidth":"98%","maxHeight":"98%","initialWidth":"300","initialHeight":"500","fixed":true,"scrolling":true,"mobiledetect":false,"mobiledevicewidth":"480px"},"nice_menus_options":{"delay":"800","speed":"fast"},"mediaelementAll":true,"better_exposed_filters":{"views":{"doj_banner":{"displays":{"block":{"filters":[]}}},"og_sidebar":{"displays":{"block":{"filters":[]}}}}},"responsive_menus":[{"selectors":".responsive .block--nice-menus .block__content, .responsive .l-region--navigation .block__content","container":"body","trigger_txt":"\u003Cspan \/\u003E\u003Cspan \/\u003E\u003Cspan \/\u003E","close_txt":"X","close_size":"18px","position":"right","media_size":"704","show_children":"1","expand_children":"1","expand_txt":"+","contract_txt":"-","remove_attrs":"1","responsive_menus_style":"mean_menu"}],"tablesorter":{"zebra":1,"odd":"odd","even":"even"},"extlink":{"extTarget":0,"extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"\\.(gov|mil|fed\\.us)(\\\/.*)?$","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":"_blank","extAlertText":{"value":"The Department of Justice does not endorse the organizations or views represented by this site and takes no responsibility for, and exercises no control over, the accuracy, accessibility, copyright or trademark compliance or legality of the material contained on this site.\n\nThank you for visiting our site.","format":"full_html"},"mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"extlink_extra":{"extlink_alert_type":"colorbox","extlink_alert_type_colorbox_mobile":"confirm","extlink_alert_text_colorbox_mobile":"You are now leaving a Department of Justice Web site. You are about to access:\n\n[extlink:external-url]\n\nThe Department of Justice does not endorse the organizations or views represented by this site and takes no responsibility for, and exercises no control over, the accuracy, accessibility, copyright or trademark compliance or legality of the material contained on this site.\n\nThank you for visiting our site.","extlink_alert_timer":"4","extlink_alert_url":"\/pls\/apex\/wwv_flow_file_mgr.get_file?p_security_group_id=1044532716411962&p_fname=now-leaving.html","extlink_cache_fix":1,"extlink_exclude_warning":"","extlink_508_fix":1,"extlink_508_text":" [external link]","extlink_url_override":0,"extlink_url_params":{"external_url":null,"back_url":null}},"urlIsAjaxTrusted":{"https:\/\/search.justice.gov\/search":true},"ogContext":{"groupType":"node","gid":"1650"},"ajaxPageState":{"js":{"sites\/all\/modules\/contrib\/extlink_extra\/extlink_extra.js":1,"sites\/all\/modules\/contrib\/responsive_tables_filter\/tablesaw\/js\/tablesaw.stackonly.js":1,"sites\/all\/modules\/contrib\/responsive_tables_filter\/tablesaw\/js\/tablesaw-init.js":1,"sites\/all\/libraries\/jquery.event.move\/js\/jquery.event.move.js":1,"sites\/all\/libraries\/jquery.event.swipe\/js\/jquery.event.swipe.js":1,"sites\/all\/modules\/contrib\/colorbox_swipe\/colorbox_swipe.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.7.2\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/contrib\/omega\/omega\/js\/no-js.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jqueryui\/1.10.2\/jquery-ui.min.js":1,"sites\/all\/themes\/justice\/js\/justice.early-behaviors.js":1,"sites\/all\/modules\/contrib\/nice_menus\/js\/jquery.bgiframe.js":1,"sites\/all\/libraries\/jquery.hoverIntent\/jquery.hoverIntent.js":1,"sites\/all\/modules\/contrib\/nice_menus\/js\/superfish.js":1,"sites\/all\/modules\/contrib\/nice_menus\/js\/nice_menus.js":1,"sites\/all\/libraries\/mediaelement\/build\/mediaelement-and-player.min.js":1,"misc\/form.js":1,"sites\/all\/modules\/contrib\/tablesorter\/tablesortervar.js":1,"sites\/all\/modules\/contrib\/extlink\/extlink.js":1,"sites\/all\/themes\/justice\/libraries\/html5shiv\/html5shiv.min.js":1,"sites\/all\/themes\/justice\/libraries\/html5shiv\/html5shiv-printshiv.min.js":1,"sites\/all\/themes\/justice\/libraries\/selectivizr\/selectivizr.min.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/custom\/doj_analytics\/js\/doj_analytics_events.js":1,"sites\/all\/libraries\/mapify\/build\/jquery.mapify.js":1,"sites\/all\/modules\/contrib\/mediaelement\/mediaelement.js":1,"sites\/all\/modules\/features\/doj_image_map\/js\/doj_image_map_mapify.js":1,"sites\/all\/modules\/features\/doj_image_pane\/doj_image_pane.js":1,"sites\/all\/modules\/contrib\/responsive_menus\/styles\/meanMenu\/jquery.meanmenu.min.js":1,"sites\/all\/modules\/contrib\/responsive_menus\/styles\/meanMenu\/responsive_menus_mean_menu.js":1,"sites\/all\/libraries\/tablesorter\/jquery.tablesorter.min.js":1,"sites\/all\/libraries\/tablesorter\/jquery.metadata.js":1,"sites\/all\/libraries\/tablesorter\/addons\/pager\/jquery.tablesorter.pager.js":1,"misc\/collapse.js":1,"sites\/all\/modules\/features\/doj_sharing\/js\/doj_sharing.js":1,"sites\/all\/modules\/features\/doj_media\/js\/doj_media.colorbox.js":1,"sites\/all\/modules\/features\/doj_page_helpful\/js\/doj_page_helpful_was_helpful.js":1,"sites\/all\/modules\/features\/doj_shortcode\/js\/jumpmenu.js":1,"sites\/all\/themes\/justice\/js\/justice.behaviors.js":1}}});
+//--><!]]>
+</script>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var usasearch_config={siteHandle:'justice'};
+//--><!]]>
+$("#apexir_rollover").appendTo("body");
+</script>
+</body>
+</html>

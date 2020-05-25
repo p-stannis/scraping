@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 import scrapy
 from foreignprincipal import items
-from collections import defaultdict
 
 class ForeignPrincipalSpider(scrapy.Spider):
     name = 'foreign'
@@ -14,11 +13,14 @@ class ForeignPrincipalSpider(scrapy.Spider):
     p_salt = ''
 
     def parse(self, response):
-        url = response.xpath('//iframe/@src').extract_first()
-        yield scrapy.Request(response.urljoin(url), self._parse_initial_page)
+        yield scrapy.Request(response.url, self._parse_initial_page)
 
     def _parse_initial_page(self, response):
         url = scrapy.Selector(response).xpath("//font[text()='Active Foreign Principals']/../../a/@href").extract_first()
+
+        if url is None:
+            raise scrapy.exceptions.CloseSpider('Active Foreign Principals was not found.')
+
         yield scrapy.Request(response.urljoin(url), self._add_country_column)
 
     def _add_country_column(self, response):
