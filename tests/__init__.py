@@ -1,25 +1,10 @@
-import os
-
-
-class FakeResponse:
-    status = 200
-    body = bytes()
-
-    def __init__(self, file_name, url):
-        self.url = url
-
-        base_dir = os.path.dirname(os.path.realpath(__file__))
-        f = open(os.path.join(base_dir, 'htmlresponses', file_name))
-        self.body = bytes(f.read(), encoding='utf8')
-        f.close()
-
-        self.text = str(self.body)
-
-
 class MockXpath:
 
     def extract_first(self):
         return 'mocked'
+
+    def re(self,path):
+       return ['"QD4JGKwGDHq5RIrCfu7-wLKaMlCduB7PQE1dIe0sdvHV4Gm3xazPKs0kw6XmM1Nk"});})();', '"6ndxv5fJzUSo7bYCjWSOFM5s0LfsOVxODT-BEPh_1RYwhom-DOURYvIWhPB0ENij"});})();']
 
 class MockResponse:
 

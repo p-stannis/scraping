@@ -1,54 +1,18 @@
 from __future__ import unicode_literals
 
 import unittest
-from datetime import datetime
 from unittest.mock import MagicMock
 
-from scrapy.http import FormRequest, HtmlResponse, Request, Response
-from tests import FakeResponse, MockResponse
+from tests import MockResponse
 
-from foreignprincipal.items import ForeignprincipalItem
 from foreignprincipal.spiders.foreign_spider import ForeignPrincipalSpider
 
 
 class TestForeignPrincipalSpider(unittest.TestCase):
-    url = ''
-    start_url = 'https://www.fara.gov/quick-search.html'
-    browse_filling_url = 'https://efile.fara.gov/ords/f?p=1381:1:9305730020345:::::'
-    active_foreign_principal_url = 'https://efile.fara.gov/ords/f?p=1381:130:9066584635823::NO:RP,130:P130_DATERANGE:N'
-    links = None
-    expected_items = None
-
-    xhr_backend_url = 'https://efile.fara.gov/pls/apex/wwv_flow.ajax'
-    fake_principal_index_page = FakeResponse('browse_fillings.html', browse_filling_url)
 
     def setUp(self):
         super().setUp()
         self.spider = ForeignPrincipalSpider()
-
-    def test_parse_initial_page(self):
-        with open('tests/htmlresponses/browse_fillings.html', 'r') as browse_filling_page:
-            body = browse_filling_page.read().replace('\n', '')
-
-            request = Request(url=self.start_url, callback=self.spider.parse)
-            response = HtmlResponse(url=self.browse_filling_url, body=body, encoding='utf-8', request=request)
-
-            active_foreign_principal = response.xpath('//font[text()="Active Foreign Principals"]/../../a/@href')
-
-            assert active_foreign_principal is not None
-
-    # def test__add_country_column(self):
-    #     with open('tests/htmlresponses/active_foreign_principals.html', 'r') as browse_filling_page:
-    #         body = browse_filling_page.read().replace('\n', '')
-
-    #         request = Request(
-    #             url=self.start_url, callback=self.spider._parse_initial_page)
-    #         response = Response(
-    #             url=self.active_foreign_principal_url,
-    #             body=body.encode(), request=request)
-    #         import pdb; pdb.set_trace()
-    #         yield_response = list(ForeignPrincipalSpider()._add_country_column(response))
-
 
     def test__get_request_parameters(self):
         ajax_identifier = 'AJAX_IDENTIFIER'
@@ -110,19 +74,12 @@ class TestForeignPrincipalSpider(unittest.TestCase):
             exhibit_urls_item
         )
 
+    def test_get_ajax_identifier(self):
+        ajax_identifier = '6ndxv5fJzUSo7bYCjWSOFM5s0LfsOVxODT-BEPh_1RYwhom-DOURYvIWhPB0ENij'
+        mock_response = MockResponse()
 
+        self.assertEqual(ajax_identifier, self.spider.get_ajax_identifier(mock_response))
 
 
 if __name__ == '__main__':
     unittest.main()
-
-
-        # item = response.meta.get('item')
-        # item['exhibit_urls'] = []
-        # docs = response.xpath('//table[@class="a-IRR-table"]//tr/td[@headers="DOCLINK"]')
-
-        # for doc_link_urls in docs:
-        #     exhibit_url = doc_link_urls.xpath('./a/@href').extract_first()
-        #     item['exhibit_urls'].append(exhibit_url)
-
-        # yield item
