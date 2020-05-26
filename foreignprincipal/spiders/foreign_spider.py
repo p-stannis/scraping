@@ -1,6 +1,9 @@
 from __future__ import absolute_import
+
 import scrapy
+
 from foreignprincipal import items
+
 
 class ForeignPrincipalSpider(scrapy.Spider):
     name = 'foreign'
@@ -11,6 +14,19 @@ class ForeignPrincipalSpider(scrapy.Spider):
     fara_gov_ajax_call = 'https://efile.fara.gov/ords/wwv_flow.ajax'
     ajax_identifier = ''
     p_salt = ''
+
+    country_page_params = {
+        'p_widget_num_return': '1000',
+        'p_widget_mod': 'ACTION',
+        'p_widget_action': 'BREAK',
+        'x03': 'COUNTRY_NAME',
+    }
+
+    show_all_rows_params = {
+        'p_widget_num_return': '1000',
+        'p_widget_mod':  'PULL',
+        'p_widget_action' :  ''
+    }
 
     def parse(self, response):
         yield scrapy.Request(response.url, self._parse_initial_page)
@@ -23,9 +39,17 @@ class ForeignPrincipalSpider(scrapy.Spider):
 
         yield scrapy.Request(response.urljoin(url), self._add_country_column)
 
-    def _add_country_column(self, response):
+    def get_ajax_identifier(self, response):
+        '''
+            Explicar logica maluca
+        '''
         js_code = response.xpath('//script').re(r'"ajaxIdentifier":\s*(.+)')[1]
-        self.ajax_identifier = str(js_code).replace('});})();','').replace('"','')
+
+        # TODO: Fazer o replace por regex
+        return str(js_code).replace('});})();', '').replace('"', '')
+
+    def _add_country_column(self, response):
+        self.ajax_identifier = self.get_ajax_identifier(response)
         self.p_salt = response.xpath('//input[@id="pSalt"]/@value').extract_first()
 
         url = response.request.url
@@ -37,10 +61,7 @@ class ForeignPrincipalSpider(scrapy.Spider):
         header_vars = self._get_request_headers(url)
 
         params = self._get_request_parameters(response, self.ajax_identifier, self.p_salt)
-        params['p_widget_num_return'] = '1000'
-        params['p_widget_mod'] = 'ACTION'
-        params['p_widget_action'] = 'BREAK'
-        params['x03'] = 'COUNTRY_NAME'
+        params.update(self.country_page_params)
 
         meta[self.url_key_name] = url
         meta['params'] = params
@@ -50,7 +71,7 @@ class ForeignPrincipalSpider(scrapy.Spider):
                                  headers=header_vars,
                                  formdata=params,
                                  callback=self._format_show_all_rows,
-                                 meta = meta)
+                                 meta=meta)
 
 
     def _format_show_all_rows(self, response):
@@ -62,9 +83,7 @@ class ForeignPrincipalSpider(scrapy.Spider):
         header_vars = self._get_request_headers(url)
 
         params = response.meta['params']
-        params['p_widget_num_return'] = '1000'
-        params['p_widget_mod'] = 'PULL'
-        params['p_widget_action'] = ''
+        params.update(self.show_all_rows_params)
 
         yield scrapy.FormRequest(self.fara_gov_ajax_call,
                                  method="POST",
@@ -107,13 +126,7 @@ class ForeignPrincipalSpider(scrapy.Spider):
         yield item
 
     @staticmethod
-    def _patch_dictionary(source, destination):
-        data = destination.copy()
-        data.update(source)
-        return data
-
-    @staticmethod
-    def _get_request_headers(referer_url):
+    def _get_request_headers(referer_url: str) -> dict:
         return {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'Host': 'efile.fara.gov',
@@ -122,7 +135,7 @@ class ForeignPrincipalSpider(scrapy.Spider):
         }
 
     @staticmethod
-    def _get_request_parameters(response, ajax_identifier, p_salt):
+    def _get_request_parameters(response: any, ajax_identifier: str, p_salt: str) -> dict:
         return {
             'p_request': 'PLUGIN=' + ajax_identifier,
             'p_instance': response.xpath('//input[@id="pInstance"]/@value').extract_first(),
@@ -136,12 +149,12 @@ class ForeignPrincipalSpider(scrapy.Spider):
 
     @staticmethod
     def _extract_str(row, header_id):
-        item = row.xpath('./td[contains(@headers, "%s")]/text()' % header_id).extract_first()
+        item = row.xpath(f'./td[contains(@headers, "{header_id}")]/text()').extract_first()
 
         if item is None:
             return ''
 
-        item = item.replace('\u00a0\u00a0', '')
+        item = item.replace('\u00a0', '')
         item = item.strip()
 
-        return item or None
+        return item

@@ -1,29 +1,14 @@
 from __future__ import unicode_literals
-import os
+
 import unittest
-from unittest import TestCase
-
-from scrapy.http import HtmlResponse, Request, FormRequest
 from datetime import datetime
+from unittest.mock import MagicMock
 
-from foreignprincipal.spiders.foreign_spider import ForeignPrincipalSpider
+from scrapy.http import FormRequest, HtmlResponse, Request, Response
+from tests import FakeResponse, MockResponse
+
 from foreignprincipal.items import ForeignprincipalItem
-
-
-class FakeResponse(object):
-    status = 200
-    body = bytes()
-
-    def __init__(self, file_name, url):
-        self.url = url
-
-        base_dir = os.path.dirname(os.path.realpath(__file__))
-
-        f = open(os.path.join(base_dir, 'htmlresponses', file_name))
-        self.body = bytes(f.read(), encoding='utf8')
-        f.close()
-
-        self.text = str(self.body)
+from foreignprincipal.spiders.foreign_spider import ForeignPrincipalSpider
 
 
 class TestForeignPrincipalSpider(unittest.TestCase):
@@ -38,11 +23,11 @@ class TestForeignPrincipalSpider(unittest.TestCase):
     fake_principal_index_page = FakeResponse('browse_fillings.html', browse_filling_url)
 
     def setUp(self):
-        super(TestForeignPrincipalSpider, self).setUp()
+        super().setUp()
         self.spider = ForeignPrincipalSpider()
 
     def test_parse_initial_page(self):
-        with open('htmlresponses/browse_fillings.html', 'r') as browse_filling_page:
+        with open('tests/htmlresponses/browse_fillings.html', 'r') as browse_filling_page:
             body = browse_filling_page.read().replace('\n', '')
 
             request = Request(url=self.start_url, callback=self.spider.parse)
@@ -52,19 +37,92 @@ class TestForeignPrincipalSpider(unittest.TestCase):
 
             assert active_foreign_principal is not None
 
-    def test__add_country_column(self):
-        with open('htmlresponses/active_foreign_principals.html', 'r') as browse_filling_page:
-            body = browse_filling_page.read().replace('\n', '')
+    # def test__add_country_column(self):
+    #     with open('tests/htmlresponses/active_foreign_principals.html', 'r') as browse_filling_page:
+    #         body = browse_filling_page.read().replace('\n', '')
 
-            request = Request(url=self.start_url, callback=self.spider._parse_initial_page)
-            response = HtmlResponse(url=self.active_foreign_principal_url, body=body, encoding='utf-8', request=request)
+    #         request = Request(
+    #             url=self.start_url, callback=self.spider._parse_initial_page)
+    #         response = Response(
+    #             url=self.active_foreign_principal_url,
+    #             body=body.encode(), request=request)
+    #         import pdb; pdb.set_trace()
+    #         yield_response = list(ForeignPrincipalSpider()._add_country_column(response))
 
-            js_code = response.xpath('//script').re(r'"ajaxIdentifier":\s*(.+)')[1]
-            self.ajax_identifier = str(js_code).replace('});})();', '').replace('"', '')
-            self.p_salt = response.xpath('//input[@id="pSalt"]/@value').extract_first()
-            print('')
+
+    def test__get_request_parameters(self):
+        ajax_identifier = 'AJAX_IDENTIFIER'
+        p_salt = 'P_SALT'
+        response = MockResponse()
+
+        self.assertDictEqual(
+            {
+                'p_request': 'PLUGIN=AJAX_IDENTIFIER',
+                'p_instance': 'mocked',
+                'p_flow_id': 'mocked',
+                'p_flow_step_id': 'mocked',
+                'p_widget_name': 'worksheet',
+                'x01': 'mocked',
+                'x02': 'mocked',
+                'p_json': '{"pageItems":null,"salt":"P_SALT"}'
+            },
+            self.spider._get_request_parameters(response, ajax_identifier, p_salt)
+        )
+
+    def test__get_request_headers(self):
+        referer_url = 'REFERER_URL'
+        self.assertDictEqual(
+            {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Host': 'efile.fara.gov',
+                'Origin': 'https://efile.fara.gov',
+                'Referer': 'REFERER_URL',
+            },
+            self.spider._get_request_headers(referer_url)
+        )
+
+    def test__extract_str(self):
+        header_id = 'COUNTRY'
+        response = MockResponse()
+
+        self.assertEqual('mocked', self.spider._extract_str(response, header_id))
+
+    def test__get_exhibit_urls(self):
+        mock_response = MagicMock()
+        mock_response.meta = {'item': {}}
+
+        mock_response.xpath.return_value = [
+            MockResponse(),
+            MockResponse(),
+            MockResponse(),
+        ]
+
+        exhibit_urls_item = list(self.spider._get_exhibit_urls(mock_response))
+
+        self.assertEqual(
+            [{
+                'exhibit_urls': [
+                    'mocked',
+                    'mocked',
+                    'mocked',
+                ]
+            }],
+            exhibit_urls_item
+        )
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
 
 
+        # item = response.meta.get('item')
+        # item['exhibit_urls'] = []
+        # docs = response.xpath('//table[@class="a-IRR-table"]//tr/td[@headers="DOCLINK"]')
+
+        # for doc_link_urls in docs:
+        #     exhibit_url = doc_link_urls.xpath('./a/@href').extract_first()
+        #     item['exhibit_urls'].append(exhibit_url)
+
+        # yield item
